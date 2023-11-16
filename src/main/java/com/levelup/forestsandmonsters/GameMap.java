@@ -19,7 +19,7 @@ public class GameMap {
         this.positions = makePositions(numRows, numColumns);
     }
 
-    public List<List<Position>> makePositions(int numRows, int numColumns) {
+    private List<List<Position>> makePositions(int numRows, int numColumns) {
         List<List<Position>> positions = new ArrayList<>();
 
         for(int rowWeAreOn = 0; rowWeAreOn < numRows; rowWeAreOn++) {

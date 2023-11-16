@@ -55,6 +55,14 @@ public class GameMapTest {
     }
 
     @Test
+    public void firstPositionOnSecondRowIsZeroOne() {
+        Position expectedPosition = new Position(0, 1);
+        GameMap gameMap = new GameMap();
+        Position actualPosition = gameMap.getPositions().get(1).get(0);
+        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+    }
+
+    @Test
     public void returnsAPosition() {
         GameMap gameMap = new GameMap();
         Position position = new Position(5, 8);
