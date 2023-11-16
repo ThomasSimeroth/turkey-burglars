@@ -20,4 +20,22 @@ public class Position {
         this.y = YCoordinates;
     }
     
+    @Override
+    public boolean equals(Object other) {
+        if(other == this) {
+            return true;
+        }
+
+        if(!(other instanceof Position)) {
+            return false;
+        }
+
+        Position otherPosition = (Position) other;
+
+        if(this.x == otherPosition.getX() && this.y == otherPosition.getY()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

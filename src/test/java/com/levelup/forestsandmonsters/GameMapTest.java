@@ -45,33 +45,26 @@ public class GameMapTest {
     @Test
     public void firstPositionIsZeroZero() {
         Position expectedPosition = new Position(0, 0);
-        GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(0).get(0);
-        assertEquals(expectedPosition.getX(), actualPosition.getX());
-        assertEquals(expectedPosition.getY(), actualPosition.getY());
+        assertEquals(expectedPosition, actualPosition);
     }
 
     @Test
     public void secondPositionIsOneZero() {
         Position expectedPosition = new Position(1, 0);
-        GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(0).get(1);
-        assertEquals(expectedPosition.getX(), actualPosition.getX());
-        assertEquals(expectedPosition.getY(), actualPosition.getY());
+        assertEquals(expectedPosition, actualPosition);
     }
 
     @Test
     public void firstPositionOnSecondRowIsZeroOne() {
         Position expectedPosition = new Position(0, 1);
-        GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(1).get(0);
-        assertEquals(expectedPosition.getX(), actualPosition.getX());
-        assertEquals(expectedPosition.getY(), actualPosition.getY());
+        assertEquals(expectedPosition, actualPosition);
     }
 
     @Test
-    public void returnsAPosition() {
-        GameMap gameMap = new GameMap();
+    public void calculatePostionReturnsAPosition() {
         Position position = new Position(5, 8);
         assertNotNull(gameMap.calculatePosition(position, DIRECTION.NORTH));
     }
@@ -79,41 +72,33 @@ public class GameMapTest {
     @Test
     public void calculatePositionWhenGoingNorth() {
         Position currentPosition = new Position(2, 2);
-        GameMap gameMap = new GameMap();
         Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.NORTH);
         Position expectedPosition = new Position(2, 3);
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
+        assertEquals(expectedPosition, newPosition);
     }
 
     @Test
     public void calculatePositionWhenGoingSouth() {
         Position currentPosition = new Position(2, 2);
-        GameMap gameMap = new GameMap();
         Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.SOUTH);
         Position expectedPosition = new Position(2, 1);
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
+        assertEquals(expectedPosition, newPosition);
     }
 
     @Test
     public void calculatePositionWhenGoingEast() {
         Position currentPosition = new Position(2, 2);
-        GameMap gameMap = new GameMap();
         Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.EAST);
         Position expectedPosition = new Position(3, 2);
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
+        assertEquals(expectedPosition, newPosition);
     }
 
     @Test
     public void calculatePositionWhenGoingWest() {
         Position currentPosition = new Position(2, 2);
-        GameMap gameMap = new GameMap();
         Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.WEST);
         Position expectedPosition = new Position(1, 2);
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
+        assertEquals(expectedPosition, newPosition);
     }
 
     @Test
@@ -122,7 +107,6 @@ public class GameMapTest {
         GameMap gameMap = new FakeValidationGameMap();
         Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.WEST);
         Position expectedPosition = new Position(3, 5);
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
+        assertEquals(expectedPosition, newPosition);
     }
 }
