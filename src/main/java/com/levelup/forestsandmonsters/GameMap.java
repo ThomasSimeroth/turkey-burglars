@@ -3,6 +3,8 @@ package com.levelup.forestsandmonsters;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
+
 public class GameMap {
     private int numPositions;
     private List<List<Position>> positions;
@@ -37,5 +39,9 @@ public class GameMap {
 
     public List<List<Position>> getPositions() {
         return positions;
+    }
+
+    public Position calculatePosition(Position startingPosition, DIRECTION direction) {
+        return new Position(3, 7);
     }
 }

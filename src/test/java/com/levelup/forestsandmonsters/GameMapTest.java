@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
+
 public class GameMapTest {
     @Test
     public void mapHasDefaultPositionsOf100(){
@@ -50,5 +52,12 @@ public class GameMapTest {
         GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(0).get(1);
         assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+    }
+
+    @Test
+    public void returnsAPosition() {
+        GameMap gameMap = new GameMap();
+        Position position = new Position(5, 8);
+        assertNotNull(gameMap.calculatePosition(position, DIRECTION.NORTH));
     }
 }
