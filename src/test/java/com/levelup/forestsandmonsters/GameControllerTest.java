@@ -1,5 +1,6 @@
 package com.levelup.forestsandmonsters;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
 
@@ -27,9 +28,10 @@ public class GameControllerTest {
         assertNotNull(testObj);
     }
     @Test
-    public DIRECTION checkMoveNorth() {
-        GameController testObj = new GameController();
-        testObj.move(DIRECTION.NORTH);
-        assumeNoException(testObj.move(DIRECTION.NORTH));
+    public void checkMove() {
+  
+  GameController objGameController = new GameController();
+  String strDirectionReturned = objGameController.move(DIRECTION.NORTH);
+  assertEquals(DIRECTION.valueOf(strDirectionReturned),DIRECTION.NORTH );
     }
 }

@@ -45,12 +45,13 @@ public class GameController {
         return this.status;
     }
 
-    public void move(DIRECTION directionToMove) {
+    public String move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
 
         //Character objCharacter = new Character();
         directionToMove = DIRECTION.NORTH;
+        return directionToMove.toString();
 
     }
 
