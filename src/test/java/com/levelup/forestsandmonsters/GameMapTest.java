@@ -2,6 +2,9 @@ package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class GameMapTest {
@@ -19,8 +22,9 @@ public class GameMapTest {
 
     @Test
     public void graphCoordinates(){
-        Position testPoint =new Position();
+        List<List<Position>> positionList = new ArrayList<>();
+        Position testPoint =new Position(0, 9);
         GameMap gamemap = new GameMap();
-        assertEquals(point, gamemap.getPoisitions());
+        assertEquals(positionList, gamemap.getPoisitions());
     }
 }

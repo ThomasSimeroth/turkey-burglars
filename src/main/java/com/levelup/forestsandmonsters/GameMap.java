@@ -14,4 +14,6 @@ public class GameMap {
     public int getNumPositions() {
         return this.numPositions;
     }
+
+    public List<List<Position>>
 }
