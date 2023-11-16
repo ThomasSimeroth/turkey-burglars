@@ -14,13 +14,22 @@ public class GameMap {
 
     public GameMap(int size){
         this.numPositions=size*size;
+        List<List<Position>> positions = new ArrayList<>();
+        Position newPosition = new Position(3, 8);
+        List<Position> row = new ArrayList<>();
+        row.add(newPosition);
+        positions.add(row);
+
+        this.positions = positions;
     }
+
+    public 
 
     public int getNumPositions() {
         return this.numPositions;
     }
 
-    public List<List<Position>> getPoisitions() {
+    public List<List<Position>> getPositions() {
         return positions;
     }
 }

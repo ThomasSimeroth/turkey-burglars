@@ -25,6 +25,13 @@ public class GameMapTest {
         List<List<Position>> positionList = new ArrayList<>();
         Position testPoint =new Position(0, 9);
         GameMap gamemap = new GameMap();
-        assertEquals(positionList, gamemap.getPoisitions());
+        assertEquals(positionList, gamemap.getPositions());
+    }
+
+    @Test
+    public void defaultMapHasOneHundredPositions() {
+        int numPositions = 100;
+        GameMap gameMap = new GameMap();
+        assertEquals(numPositions, gameMap.getPositions().size());
     }
 }
