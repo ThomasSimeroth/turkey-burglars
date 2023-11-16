@@ -1,8 +1,11 @@
 package com.levelup.forestsandmonsters;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -36,7 +39,10 @@ public class GameControllerTest {
     @Test
     public void testMapPositionCalculation(){
         FakeGameMap objFakeGameMap = new FakeGameMap();
-        objFakeGameMap.makePositions(10, 10)
-        
+        objFakeGameMap.makePositions(10, 10);
+
+        assertArrayEquals(100,objFakeGameMap.makePositions(10, 10));
+
+
     }
 }

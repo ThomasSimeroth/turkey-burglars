@@ -69,7 +69,9 @@ public class GameController {
     public int getTotalPositions() {
         // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
         // testable
-        FakeGameMap objFakeGameMap = new FakeGameMap();
+       // FakeGameMap objFakeGameMap = new FakeGameMap();
+       int intTotalPositions = 100;
+       return intTotalPositions;
     }
 
 }
