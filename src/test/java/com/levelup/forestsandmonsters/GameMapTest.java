@@ -19,6 +19,7 @@ public class GameMapTest {
     public void mapHasProvidedPositions() {
         GameMap gamemap = new GameMap(5, 6);
         assertEquals(30, gamemap.getNumPositions());
+        assertEquals(30, gamemap.getPositions().size());
     }
 
     @Test
