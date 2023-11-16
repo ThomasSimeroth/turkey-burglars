@@ -10,6 +10,7 @@ public class Character {
     private String name;
     private Position currentPosition;
     private GameMap map;
+    private int moveCount;
 
     public String getName() {
         return name;
@@ -38,16 +39,23 @@ public class Character {
     public Position move(DIRECTION direction) {
         Position newPosition = map.calculatePosition(currentPosition, direction);
         this.currentPosition = newPosition;
+        this.moveCount++;
         return this.currentPosition;
+    }
+
+    public int getMoveCount() {
+        return this.moveCount;
     }
 
     public Character() {
         this.name = DEFAULT_NAME;
         this.currentPosition = DEFAULT_POSITION;
+        this.moveCount = 0;
     }
 
     public Character(String name) {
         this.name = name;
         this.currentPosition = DEFAULT_POSITION;
+        this.moveCount = 0;
     }
 }

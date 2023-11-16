@@ -2,6 +2,8 @@ package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
@@ -81,4 +83,38 @@ public class CharacterTest {
         character.move(direction);
         assertEquals(character.getPosition(),newPosition);
     }
+
+    @Test 
+    public void characterHasMoveCount() {
+        Character character = new Character();
+        assertNotNull(character.getMoveCount());
+    }
+
+    @Test
+    public void characterHasInitialMoveCountOfZero() {
+        Character character = new Character();
+        assertEquals(character.getMoveCount(),0);   
+    }
+
+    @Test
+    public void characterWithCustomInitialNameHasMoveCountOfZero() {
+        Character character = new Character("Brad");
+        assertEquals(character.getMoveCount(),0);   
+    }
+
+    @Test 
+    public void characterMoveCountIncreasesByOneWithMove() {
+        Character character = new Character();
+        Position currentPosition = new Position(20,45);
+        Position newPosition = new Position(10,45);
+        DIRECTION direction = DIRECTION.NORTH;
+        FakeGameMap map = new FakeGameMap(newPosition,35,56);
+        character.setPosition(currentPosition);
+        character.enterMap(map);
+        int currentMoveCount = character.getMoveCount();
+        character.move(direction);
+        assertEquals(character.getMoveCount(),currentMoveCount+1);
+    }
+
+
 }
