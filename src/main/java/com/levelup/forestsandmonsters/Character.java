@@ -50,9 +50,9 @@ public class Character {
     public String getGameStatus() {
         return this.name 
             + " is currently on (" 
-            + this.currentPosition.getCoordinates().getX() 
+            + this.currentPosition.getX()
             + "," 
-            + this.currentPosition.getCoordinates().getY() 
+            + this.currentPosition.getY() 
             + ") and has taken "
             + this.moveCount
             + " total moves.";
