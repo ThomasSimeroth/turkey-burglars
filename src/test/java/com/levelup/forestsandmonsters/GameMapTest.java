@@ -8,10 +8,12 @@ import org.junit.Test;
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
 public class GameMapTest {
+    private final int DEFAULT_POSITIONS = 100;
+
     @Test
     public void mapHasDefaultPositionsOf100(){
         GameMap gamemap = new GameMap();
-        assertEquals(100,gamemap.getNumPositions());
+        assertEquals(DEFAULT_POSITIONS, gamemap.getNumPositions());
     }
 
     @Test
@@ -29,8 +31,6 @@ public class GameMapTest {
 
     @Test
     public void defaultMapHasOneHundredPositions() {
-        int numPositions = 100;
-        int numRows = 10;
         GameMap gameMap = new GameMap();
         assertEquals(10, gameMap.getPositions().size());
     }
