@@ -74,9 +74,9 @@ public class GameMapTest {
 
     @Test
     public void calculatePositionWhenGoingNorth() {
-        Position currenPosition = new Position(2, 2);
+        Position currentPosition = new Position(2, 2);
         GameMap gameMap = new GameMap();
-        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.NORTH);
+        Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.NORTH);
         Position expectedPosition = new Position(2, 3);
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
@@ -84,9 +84,9 @@ public class GameMapTest {
 
     @Test
     public void calculatePositionWhenGoingSouth() {
-        Position currenPosition = new Position(2, 2);
+        Position currentPosition = new Position(2, 2);
         GameMap gameMap = new GameMap();
-        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.SOUTH);
+        Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.SOUTH);
         Position expectedPosition = new Position(2, 1);
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
@@ -94,9 +94,9 @@ public class GameMapTest {
 
     @Test
     public void calculatePositionWhenGoingEast() {
-        Position currenPosition = new Position(2, 2);
+        Position currentPosition = new Position(2, 2);
         GameMap gameMap = new GameMap();
-        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.EAST);
+        Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.EAST);
         Position expectedPosition = new Position(3, 2);
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
@@ -104,10 +104,20 @@ public class GameMapTest {
 
     @Test
     public void calculatePositionWhenGoingWest() {
-        Position currenPosition = new Position(2, 2);
+        Position currentPosition = new Position(2, 2);
         GameMap gameMap = new GameMap();
-        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.WEST);
+        Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.WEST);
         Position expectedPosition = new Position(1, 2);
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    public void calculatePositionWhenHittingWall() {
+        Position currentPosition = new Position(3, 5);
+        GameMap gameMap = new FakeValidationGameMap();
+        Position newPosition = gameMap.calculatePosition(currentPosition, DIRECTION.WEST);
+        Position expectedPosition = new Position(3, 5);
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
     }
