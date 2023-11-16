@@ -16,4 +16,11 @@ public class GameMapTest {
         GameMap gamemap = new GameMap(6);
         assertEquals(36, gamemap.getNumPositions());
     }
+
+    @Test
+    public void graphCoordinates(){
+        Position testPoint =new Position();
+        GameMap gamemap = new GameMap();
+        assertEquals(point, gamemap.getPoisitions());
+    }
 }
