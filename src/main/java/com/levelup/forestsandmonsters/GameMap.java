@@ -42,6 +42,16 @@ public class GameMap {
     }
 
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
-        return new Position(startingPosition.getX(), startingPosition.getY()+1);
+        if(direction == DIRECTION.NORTH) {
+            return new Position(startingPosition.getX(), startingPosition.getY()+1);
+        } else if(direction == DIRECTION.SOUTH) {
+            return new Position(startingPosition.getX(), startingPosition.getY()-1);
+        } else if (direction == DIRECTION.EAST) {
+            return new Position(startingPosition.getX()+1, startingPosition.getY());
+        } else if (direction == DIRECTION.WEST) {
+            return new Position(startingPosition.getX()-1, startingPosition.getY());
+        } else {
+            return new Position(0, 0);
+        }
     }
 }

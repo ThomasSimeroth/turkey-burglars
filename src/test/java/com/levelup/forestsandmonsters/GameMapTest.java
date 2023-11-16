@@ -81,4 +81,34 @@ public class GameMapTest {
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
     }
+
+    @Test
+    public void calculatePositionWhenGoingSouth() {
+        Position currenPosition = new Position(2, 2);
+        GameMap gameMap = new GameMap();
+        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.SOUTH);
+        Position expectedPosition = new Position(2, 1);
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    public void calculatePositionWhenGoingEast() {
+        Position currenPosition = new Position(2, 2);
+        GameMap gameMap = new GameMap();
+        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.EAST);
+        Position expectedPosition = new Position(3, 2);
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    public void calculatePositionWhenGoingWest() {
+        Position currenPosition = new Position(2, 2);
+        GameMap gameMap = new GameMap();
+        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.WEST);
+        Position expectedPosition = new Position(1, 2);
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
 }
