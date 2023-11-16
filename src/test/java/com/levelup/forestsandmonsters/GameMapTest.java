@@ -3,36 +3,43 @@ package com.levelup.forestsandmonsters;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
 public class GameMapTest {
     private final int DEFAULT_POSITIONS = 100;
+    private final int DEFAULT_ROWS = 10;
+    private final int ARBITRARY_NUM_ROWS = 5;
+    private final int ARBITRARY_NUM_COLUMNS = 6;
+    private GameMap gameMap;
+
+    @Before
+    public void setUpGameMap() {
+        gameMap = new GameMap();
+    }
 
     @Test
     public void mapHasDefaultPositionsOf100(){
-        GameMap gamemap = new GameMap();
-        assertEquals(DEFAULT_POSITIONS, gamemap.getNumPositions());
+        assertEquals(DEFAULT_POSITIONS, gameMap.getNumPositions());
     }
 
     @Test
     public void mapHasProvidedPositions() {
-        GameMap gamemap = new GameMap(5, 6);
-        assertEquals(30, gamemap.getNumPositions());
-        assertEquals(5, gamemap.getPositions().size());
+        GameMap gameMap = new GameMap(ARBITRARY_NUM_ROWS, ARBITRARY_NUM_COLUMNS);
+        assertEquals(ARBITRARY_NUM_ROWS * ARBITRARY_NUM_COLUMNS, gameMap.getNumPositions());
+        assertEquals(ARBITRARY_NUM_ROWS, gameMap.getPositions().size());
     }
 
     @Test
-    public void graphCoordinates(){
-        GameMap gamemap = new GameMap();
-        assertNotNull(gamemap.getPositions());
+    public void mapHasPositionsSet(){
+        assertNotNull(gameMap.getPositions());
     }
 
     @Test
-    public void defaultMapHasOneHundredPositions() {
-        GameMap gameMap = new GameMap();
-        assertEquals(10, gameMap.getPositions().size());
+    public void defaultMapHasTenRows() {
+        assertEquals(DEFAULT_ROWS, gameMap.getPositions().size());
     }
 
     @Test
