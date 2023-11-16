@@ -4,15 +4,20 @@ import java.awt.Point;
 
 public class Position {
 
-    private Point coordinates;
+    private int x;
+    private int y;
 
-    public Point getCoordinates() {
-        return coordinates;
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public Position(int xCoordinates, int YCoordinates) {
-        this.coordinates = new Point();
-        this.coordinates.setLocation(xCoordinates, YCoordinates);
+        this.x = xCoordinates;
+        this.y = YCoordinates;
     }
     
 }

@@ -42,6 +42,6 @@ public class GameMap {
     }
 
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
-        return new Position(3, 7);
+        return new Position(startingPosition.getX(), startingPosition.getY()+1);
     }
 }

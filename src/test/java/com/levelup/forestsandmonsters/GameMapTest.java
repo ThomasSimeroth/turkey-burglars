@@ -43,7 +43,8 @@ public class GameMapTest {
         Position expectedPosition = new Position(0, 0);
         GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(0).get(0);
-        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+        assertEquals(expectedPosition.getX(), actualPosition.getX());
+        assertEquals(expectedPosition.getY(), actualPosition.getY());
     }
 
     @Test
@@ -51,7 +52,8 @@ public class GameMapTest {
         Position expectedPosition = new Position(1, 0);
         GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(0).get(1);
-        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+        assertEquals(expectedPosition.getX(), actualPosition.getX());
+        assertEquals(expectedPosition.getY(), actualPosition.getY());
     }
 
     @Test
@@ -59,7 +61,8 @@ public class GameMapTest {
         Position expectedPosition = new Position(0, 1);
         GameMap gameMap = new GameMap();
         Position actualPosition = gameMap.getPositions().get(1).get(0);
-        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+        assertEquals(expectedPosition.getX(), actualPosition.getX());
+        assertEquals(expectedPosition.getY(), actualPosition.getY());
     }
 
     @Test
@@ -67,5 +70,15 @@ public class GameMapTest {
         GameMap gameMap = new GameMap();
         Position position = new Position(5, 8);
         assertNotNull(gameMap.calculatePosition(position, DIRECTION.NORTH));
+    }
+
+    @Test
+    public void calculatePositionWhenGoingNorth() {
+        Position currenPosition = new Position(2, 2);
+        GameMap gameMap = new GameMap();
+        Position newPosition = gameMap.calculatePosition(currenPosition, DIRECTION.NORTH);
+        Position expectedPosition = new Position(2, 3);
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
     }
 }
