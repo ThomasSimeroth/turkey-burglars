@@ -1,74 +1,81 @@
 package com.levelup.forestsandmonsters;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-
-import org.junit.Test;
-
 import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
-import java.awt.Point;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Before;
 
 public class CharacterTest {
 
-    @Test 
-    public void characterHasName() {
-        Character character = new Character();
-        assertNotNull(character.getName());
+    private final String DEFAULT_CHARACTER_NAME = "Turkey Burglar";
+    private Character DEFAULT_CHARACTER;
+    private final String DEFAULT_CUSTOM_CHARACTER_NAME = "Thomas";
+    private Character DEFAULT_CHARACTER_WITH_CUSTOM_NAME;
+    private final String DEFAULT_CHANGED_CHARACTER_NAME = "Andrew";
+    private final int DEFAULT_X_COORDINATE_START = 1;
+    private final int DEFAULT_Y_COORDINATE_START = 2;
+    private final Position DEFAULT_POSITION_START = new Position(DEFAULT_Y_COORDINATE_START, DEFAULT_X_COORDINATE_START);
+    private final int DEFAULT_X_COORDINATE_END = 35;
+    private final int DEFAULT_Y_COORDINATE_END = 47;
+    private final Position DEFAULT_POSITION_END = new Position(DEFAULT_Y_COORDINATE_END, DEFAULT_X_COORDINATE_END);
+    private FakeGameMap DEFAULT_GAME_MAP;
+
+    @Before
+    public void setupTestCharacter() {
+        DEFAULT_CHARACTER = new Character();
+        DEFAULT_CHARACTER_WITH_CUSTOM_NAME = new Character(DEFAULT_CUSTOM_CHARACTER_NAME);
+        GameMap DEFAULT_GAME_MAP = new FakeGameMap(DEFAULT_POSITION_END,35,56);;
     }
 
     @Test 
-    public void characterHasDefaultName() {
-        String defaultName = "Turkey Burglar";
-        Character character = new Character();
-        assertEquals(character.getName(),defaultName);
+    public void defaultCharacterHasName() {
+        assertNotNull(DEFAULT_CHARACTER.getName());
+    }
+
+    @Test 
+    public void defaultCharacterWithCustomNameHasName() {
+        assertNotNull(DEFAULT_CHARACTER_WITH_CUSTOM_NAME.getName());
+    }
+
+    @Test 
+    public void defaultCharacterHasDefaultName() {
+        assertEquals(DEFAULT_CHARACTER.getName(),DEFAULT_CHARACTER_NAME);
     }
 
     @Test
     public void characterCanChangeName() {
-        String changedName = "Steve";
-        Character character = new Character();
-        character.setName(changedName);
-        assertEquals(character.getName(),changedName);
+        DEFAULT_CHARACTER.setName(DEFAULT_CHANGED_CHARACTER_NAME);
+        assertEquals(DEFAULT_CHARACTER.getName(),DEFAULT_CHANGED_CHARACTER_NAME);
     }
  
     @Test
-    public void characterInitializeCustomName() {
-        String customName = "Steve";
-        Character character = new Character(customName);
-        assertEquals(character.getName(),customName);
+    public void canCharacterInitializeCustomName() {
+        assertEquals(DEFAULT_CHARACTER_WITH_CUSTOM_NAME.getName(),DEFAULT_CUSTOM_CHARACTER_NAME);
     }
 
     @Test 
-    public void characterHasPosition() {
-        Character character = new Character();
-        assertNotNull(character.getPosition());
+    public void defaultCharacterHasPosition() {
+        assertNotNull(DEFAULT_CHARACTER.getPosition());
     }
 
     @Test 
-    public void characterWithCustomNameHasPosition() {
-        String customName = "Steve";
-        Character character = new Character(customName);
-        assertNotNull(character.getPosition());
+    public void defaultCharacterWithCustomNameHasPosition() {
+        assertNotNull(DEFAULT_CHARACTER_WITH_CUSTOM_NAME.getPosition());
     }
 
     @Test
     public void characterCanSetPosition() {
-        Character character = new Character();
-        int xCoordinates = 1;
-        int YCoordinates = 2;
-        Position position = new Position(xCoordinates, YCoordinates);
-        character.setPosition(position);
-        assertEquals(character.getPosition(),position);
+        DEFAULT_CHARACTER.setPosition(DEFAULT_POSITION_START);
+        assertEquals(DEFAULT_CHARACTER.getPosition(),DEFAULT_POSITION_START);
     }
 
     @Test 
     public void characterCanEnterMap() {
-        Character character = new Character();
-        GameMap map = new GameMap();
-        character.enterMap(map);
-        assertEquals(character.getMap(),map);
+        DEFAULT_CHARACTER.enterMap(DEFAULT_GAME_MAP);
+        assertEquals(DEFAULT_CHARACTER.getMap(),DEFAULT_GAME_MAP);
     }
 
     @Test 
