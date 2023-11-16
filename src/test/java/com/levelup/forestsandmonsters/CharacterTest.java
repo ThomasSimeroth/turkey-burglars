@@ -3,6 +3,9 @@ package com.levelup.forestsandmonsters;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
+
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
+
 import java.awt.Point;
 
 public class CharacterTest {
@@ -58,4 +61,23 @@ public class CharacterTest {
         assertEquals(character.getPosition(),position);
     }
 
+    @Test 
+    public void characterCanEnterMap() {
+        Character character = new Character();
+        GameMap map = new GameMap();
+        character.enterMap(map);
+        assertEquals(character.getMap(),map);
+    }
+
+    /*@Test 
+    public void characterCanMove() {
+        Character character = new Character();
+        GameMap map = new GameMap();
+        Position currentPosition = new Position(0,0);
+        Position newPosition = new Position(0,1);
+        DIRECTION direction = DIRECTION.NORTH;
+        character.setPosition(currentPosition);
+        character.move(direction);
+        assertEquals(character.getPosition(),newPosition);
+    }*/
 }
