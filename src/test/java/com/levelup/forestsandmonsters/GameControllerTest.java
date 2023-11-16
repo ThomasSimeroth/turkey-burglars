@@ -1,7 +1,11 @@
 package com.levelup.forestsandmonsters;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assume.assumeNoException;
+
 import org.junit.Test;
+
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
 public class GameControllerTest {
     @Test
@@ -21,5 +25,11 @@ public class GameControllerTest {
         GameController testObj = new GameController();
         testObj.createCharacter(null);
         assertNotNull(testObj);
+    }
+    @Test
+    public DIRECTION checkMoveNorth() {
+        GameController testObj = new GameController();
+        testObj.move(DIRECTION.NORTH);
+        assumeNoException(testObj.move(DIRECTION.NORTH));
     }
 }

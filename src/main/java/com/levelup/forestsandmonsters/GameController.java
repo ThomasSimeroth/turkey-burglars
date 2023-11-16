@@ -49,12 +49,16 @@ public class GameController {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
 
-        Character objCharacter = new Character();
-        //objCharacter.
+        //Character objCharacter = new Character();
+        directionToMove = DIRECTION.NORTH;
+
     }
 
     public void setCharacterPosition(Point coordinates) {
         // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
+        Character objCharacter = new Character();
+        Position objPosition = new Position(getTotalPositions(), getTotalPositions());
+        objCharacter.setPosition(objPosition);
     }
 
     public void setCurrentMoveCount(int moveCount) {
