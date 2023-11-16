@@ -9,15 +9,15 @@ public class GameMap {
 
     public GameMap(){
         this.numPositions=100;
-        this.positions = makePositions(10);
+        this.positions = makePositions(10, 10);
     }
 
-    public GameMap(int size){
-        this.numPositions=size*size;
-        this.positions = makePositions(size);
+    public GameMap(int numRows, int numColumns){
+        this.numPositions=numRows*numColumns;
+        this.positions = makePositions(numRows, numColumns);
     }
 
-    public List<List<Position>> makePositions(int size) {
+    public List<List<Position>> makePositions(int numRows, int numColumns) {
         List<List<Position>> positions = new ArrayList<>();
 
         for(int i = 0; i < 100; i++) {
