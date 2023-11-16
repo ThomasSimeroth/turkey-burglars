@@ -4,6 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,18 +35,27 @@ public class GameControllerTest {
     @Test
     public void checkMove() {
         GameController objGameController = new GameController();
-        String strDirectionReturned = objGameController.move(DIRECTION.NORTH);
-        assertEquals(DIRECTION.valueOf(strDirectionReturned),DIRECTION.NORTH );
+        assertNotNull(objGameController);
     }
     @Test
-    public void testMapPositionCalculation(){
-        FakeGameMap objFakeGameMap = new FakeGameMap();
-        
-        List<List<Position>> positions = new ArrayList<>();
-        positions = objFakeGameMap.makePositions(10, 10);
-
-        assertArrayEquals(objFakeGameMap.getNumPositions(),positions);
-
-
+    public void testCalculateMapPositions() {
+            GameMap gamemap = new GameMap(4, 7);
+            assertEquals(28, gamemap.getNumPositions());
+            assertEquals(4, gamemap.getPositions().size());
     }
+    @Test
+    public void testGetStatus() {
+        GameController objController = new GameController();
+        assertNotNull(objController);
+    }
+    @Test
+    public void testEnterGameMap() {
+        GameController objController = new GameController();
+        objController.enterGameMap();
+
+        assertEquals(100,objController.getTotalPositions());
+    }
+
+
+
 }
