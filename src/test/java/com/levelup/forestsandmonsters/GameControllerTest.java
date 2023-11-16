@@ -10,4 +10,16 @@ public class GameControllerTest {
         assertNotNull(testObj.status);
     }
 
+    @Test
+    public void checkNamePopulated() {
+        GameController testObj = new GameController();
+        testObj.createCharacter("Turkey");
+        assertNotNull(testObj);
+    }
+    @Test
+    public void checkNameDefault() {
+        GameController testObj = new GameController();
+        testObj.createCharacter(null);
+        assertNotNull(testObj);
+    }
 }

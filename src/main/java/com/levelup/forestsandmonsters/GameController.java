@@ -48,6 +48,9 @@ public class GameController {
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
+
+        Character objCharacter = new Character();
+        //objCharacter.
     }
 
     public void setCharacterPosition(Point coordinates) {
