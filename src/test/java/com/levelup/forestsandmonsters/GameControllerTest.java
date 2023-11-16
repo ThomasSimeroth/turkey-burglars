@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -39,9 +40,11 @@ public class GameControllerTest {
     @Test
     public void testMapPositionCalculation(){
         FakeGameMap objFakeGameMap = new FakeGameMap();
-        objFakeGameMap.makePositions(10, 10);
+        
+        List<List<Position>> positions = new ArrayList<>();
+        positions = objFakeGameMap.makePositions(10, 10);
 
-        assertArrayEquals(100,objFakeGameMap.makePositions(10, 10));
+        assertArrayEquals(objFakeGameMap.getNumPositions(),positions);
 
 
     }
