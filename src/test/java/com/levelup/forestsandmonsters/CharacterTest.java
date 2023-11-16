@@ -69,7 +69,7 @@ public class CharacterTest {
         assertEquals(character.getMap(),map);
     }
 
-    /*@Test 
+    @Test 
     public void characterCanMove() {
         Character character = new Character();
         GameMap map = new GameMap();
@@ -79,5 +79,5 @@ public class CharacterTest {
         character.setPosition(currentPosition);
         character.move(direction);
         assertEquals(character.getPosition(),newPosition);
-    }*/
+    }
 }

@@ -35,12 +35,11 @@ public class Character {
         this.map = map;
     }
 
-    /*public Position move(DIRECTION direction) {
-        //Position newPosition = map.calculatePosition(currentPosition, direction);
-        Position newPosition = new Position(0, 0);
+    public Position move(DIRECTION direction) {
+        Position newPosition = map.calculatePosition(currentPosition, direction);
         this.currentPosition = newPosition;
         return this.currentPosition;
-    }*/
+    }
 
     public Character() {
         this.name = DEFAULT_NAME;
