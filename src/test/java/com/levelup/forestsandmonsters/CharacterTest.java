@@ -3,6 +3,7 @@ package com.levelup.forestsandmonsters;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
+import java.awt.Point;
 
 public class CharacterTest {
 
@@ -33,4 +34,28 @@ public class CharacterTest {
         Character character = new Character(customName);
         assertEquals(character.getName(),customName);
     }
+
+    @Test 
+    public void characterHasPosition() {
+        Character character = new Character();
+        assertNotNull(character.getPosition());
+    }
+
+    @Test 
+    public void characterWithCustomNameHasPosition() {
+        String customName = "Steve";
+        Character character = new Character(customName);
+        assertNotNull(character.getPosition());
+    }
+
+    @Test
+    public void characterCanSetPosition() {
+        Character character = new Character();
+        int xCoordinates = 1;
+        int YCoordinates = 2;
+        Position position = new Position(xCoordinates, YCoordinates);
+        character.setPosition(position);
+        assertEquals(character.getPosition(),position);
+    }
+
 }
