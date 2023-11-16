@@ -29,9 +29,14 @@ public class GameControllerTest {
     }
     @Test
     public void checkMove() {
-  
-  GameController objGameController = new GameController();
-  String strDirectionReturned = objGameController.move(DIRECTION.NORTH);
-  assertEquals(DIRECTION.valueOf(strDirectionReturned),DIRECTION.NORTH );
+        GameController objGameController = new GameController();
+        String strDirectionReturned = objGameController.move(DIRECTION.NORTH);
+        assertEquals(DIRECTION.valueOf(strDirectionReturned),DIRECTION.NORTH );
+    }
+    @Test
+    public void testMapPositionCalculation(){
+        FakeGameMap objFakeGameMap = new FakeGameMap();
+        objFakeGameMap.makePositions(10, 10)
+        
     }
 }
