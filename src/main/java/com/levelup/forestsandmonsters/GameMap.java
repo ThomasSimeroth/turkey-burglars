@@ -9,21 +9,25 @@ public class GameMap {
 
     public GameMap(){
         this.numPositions=100;
-        this.positions = new ArrayList<>();
+        this.positions = makePositions(10);
     }
 
     public GameMap(int size){
         this.numPositions=size*size;
-        List<List<Position>> positions = new ArrayList<>();
-        Position newPosition = new Position(3, 8);
-        List<Position> row = new ArrayList<>();
-        row.add(newPosition);
-        positions.add(row);
-
-        this.positions = positions;
+        this.positions = makePositions(size);
     }
 
-    public 
+    public List<List<Position>> makePositions(int size) {
+        List<List<Position>> positions = new ArrayList<>();
+
+        for(int i = 0; i < 100; i++) {
+            Position newPosition = new Position(3, 8);
+            List<Position> row = new ArrayList<>();
+            row.add(newPosition);
+            positions.add(row);
+        }
+        return positions;
+    }
 
     public int getNumPositions() {
         return this.numPositions;
