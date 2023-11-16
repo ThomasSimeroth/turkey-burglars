@@ -72,11 +72,12 @@ public class CharacterTest {
     @Test 
     public void characterCanMove() {
         Character character = new Character();
-        GameMap map = new GameMap();
-        Position currentPosition = new Position(0,0);
-        Position newPosition = new Position(0,1);
+        Position currentPosition = new Position(20,45);
+        Position newPosition = new Position(10,45);
         DIRECTION direction = DIRECTION.NORTH;
+        FakeGameMap map = new FakeGameMap(newPosition,35,56);
         character.setPosition(currentPosition);
+        character.enterMap(map);
         character.move(direction);
         assertEquals(character.getPosition(),newPosition);
     }

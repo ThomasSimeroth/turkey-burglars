@@ -11,7 +11,7 @@ public class FakeGameMap extends GameMap {
         this.weightedPosition = weightedPosition;
     }
 
-    //@Override
+    @Override
     public Position calculatePosition(Position startingPosition, DIRECTION direction) {
         return weightedPosition;
     }
