@@ -20,10 +20,12 @@ public class GameMap {
     public List<List<Position>> makePositions(int numRows, int numColumns) {
         List<List<Position>> positions = new ArrayList<>();
 
-        for(int i = 0; i < numRows * numColumns; i++) {
-            Position newPosition = new Position(3, 8);
+        for(int rowWeAreOn = 0; rowWeAreOn < numRows; rowWeAreOn++) {
             List<Position> row = new ArrayList<>();
-            row.add(newPosition);
+            for(int colWeAreOn = 0; colWeAreOn < numColumns; colWeAreOn++) {
+                Position newPosition = new Position(colWeAreOn, rowWeAreOn);
+                row.add(newPosition);
+            }
             positions.add(row);
         }
         return positions;

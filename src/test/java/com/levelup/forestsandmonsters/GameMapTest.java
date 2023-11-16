@@ -19,7 +19,7 @@ public class GameMapTest {
     public void mapHasProvidedPositions() {
         GameMap gamemap = new GameMap(5, 6);
         assertEquals(30, gamemap.getNumPositions());
-        assertEquals(30, gamemap.getPositions().size());
+        assertEquals(5, gamemap.getPositions().size());
     }
 
     @Test
@@ -31,7 +31,24 @@ public class GameMapTest {
     @Test
     public void defaultMapHasOneHundredPositions() {
         int numPositions = 100;
+        int numRows = 10;
         GameMap gameMap = new GameMap();
-        assertEquals(numPositions, gameMap.getPositions().size());
+        assertEquals(10, gameMap.getPositions().size());
+    }
+
+    @Test
+    public void firstPositionIsZeroZero() {
+        Position expectedPosition = new Position(0, 0);
+        GameMap gameMap = new GameMap();
+        Position actualPosition = gameMap.getPositions().get(0).get(0);
+        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
+    }
+
+    @Test
+    public void secondPositionIsOneZero() {
+        Position expectedPosition = new Position(1, 0);
+        GameMap gameMap = new GameMap();
+        Position actualPosition = gameMap.getPositions().get(0).get(1);
+        assertEquals(expectedPosition.getCoordinates(), actualPosition.getCoordinates());
     }
 }
