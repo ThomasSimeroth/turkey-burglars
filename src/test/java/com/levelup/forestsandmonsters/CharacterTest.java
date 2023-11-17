@@ -22,6 +22,7 @@ public class CharacterTest {
     private final int DEFAULT_Y_COORDINATE_END = 47;
     private final Position DEFAULT_POSITION_END = new Position(DEFAULT_Y_COORDINATE_END, DEFAULT_X_COORDINATE_END);
     private FakeGameMap DEFAULT_GAME_MAP;
+    private final int DEFAULT_MOVE_COUNT = 324;
 
     @Before
     public void setupTestCharacter() {
@@ -121,6 +122,12 @@ public class CharacterTest {
         int currentMoveCount = character.getMoveCount();
         character.move(direction);
         assertEquals(character.getMoveCount(),currentMoveCount+1);
+    }
+
+    @Test
+    public void canSetMoveCount() {
+        DEFAULT_CHARACTER.setMoveCount(DEFAULT_MOVE_COUNT);
+        assertEquals(DEFAULT_CHARACTER.getMoveCount(),DEFAULT_MOVE_COUNT);
     }
 
 }
