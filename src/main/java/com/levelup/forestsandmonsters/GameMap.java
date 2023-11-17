@@ -7,15 +7,21 @@ import com.levelup.forestsandmonsters.GameController.DIRECTION;
 
 public class GameMap {
     private int numPositions;
+    private int numColumns;
+    private int numRows;
     private List<List<Position>> positions;
 
     public GameMap(){
         this.numPositions=100;
+        this.numRows=10;
+        this.numColumns=10;
         this.positions = makePositions(10, 10);
     }
 
     public GameMap(int numRows, int numColumns){
         this.numPositions=numRows*numColumns;
+        this.numRows=numRows;
+        this.numColumns = numColumns;
         this.positions = makePositions(numRows, numColumns);
     }
 
@@ -64,6 +70,16 @@ public class GameMap {
     }
 
     public boolean isPositionValid(Position position) {
-        return true;
+        if(position.getX() < 0) {
+            return false;
+        } else if(position.getY() < 0) {
+            return false;
+        } else if(position.getX() >= numColumns) {
+            return false;
+        } else if(position.getY() >= numRows) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

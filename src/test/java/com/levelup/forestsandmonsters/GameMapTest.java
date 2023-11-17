@@ -109,4 +109,39 @@ public class GameMapTest {
         Position expectedPosition = new Position(3, 5);
         assertEquals(expectedPosition, newPosition);
     }
+
+    @Test
+    public void validPositionIsTrue() {
+        Position positionToTest = new Position(2, 2);
+        boolean isPositionValid = gameMap.isPositionValid(positionToTest);
+        assertEquals(true, isPositionValid);
+    }
+
+    @Test
+    public void invalidPositionSouthofMapIsFalse() {
+        Position positionToTest = new Position(0, -1);
+        boolean isPositionValid = gameMap.isPositionValid(positionToTest);
+        assertEquals(false, isPositionValid);
+    }
+
+    @Test
+    public void invalidPositionWestofMapIsFalse() {
+        Position positionToTest = new Position(-1, 0);
+        boolean isPositionValid = gameMap.isPositionValid(positionToTest);
+        assertEquals(false, isPositionValid);
+    }
+
+    @Test
+    public void invalidPositionEastofMapIsFalse() {
+        Position positionToTest = new Position(10, 0);
+        boolean isPositionValid = gameMap.isPositionValid(positionToTest);
+        assertEquals(false, isPositionValid);
+    }
+
+    @Test
+    public void invalidPositionNorthOfMapIsFalse() {
+        Position positionToTest = new Position(0, 10);
+        boolean isPositionValid = gameMap.isPositionValid(positionToTest);
+        assertEquals(false, isPositionValid);
+    }
 }
