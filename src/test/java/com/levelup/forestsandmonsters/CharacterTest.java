@@ -123,11 +123,4 @@ public class CharacterTest {
         assertEquals(character.getMoveCount(),currentMoveCount+1);
     }
 
-    @Test
-    public void characterHasStatus() {
-        Character character = new Character();
-        assertNotNull(character.getGameStatus());        
-    }
-
-
 }

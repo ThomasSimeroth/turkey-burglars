@@ -47,17 +47,6 @@ public class Character {
         return this.moveCount;
     }
 
-    public String getGameStatus() {
-        return this.name 
-            + " is currently on (" 
-            + this.currentPosition.getX()
-            + "," 
-            + this.currentPosition.getY() 
-            + ") and has taken "
-            + this.moveCount
-            + " total moves.";
-    }
-
     public Character() {
         this.name = DEFAULT_NAME;
         this.currentPosition = DEFAULT_POSITION;
