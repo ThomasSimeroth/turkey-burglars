@@ -43,8 +43,8 @@ public class MoveSteps {
     @When("the character moves")
     public void theCharacterMoves() {
         testObj.setCharacterPosition(new Position(this.startX, this.startY));
-        testObj.move(this.direction);
         testObj.setMoveCount(this.moveCount);
+        testObj.move(this.direction);
         com.levelup.forestsandmonsters.Character character = testObj.getCharacter();
         this.currentPosition = character.getPosition();
     }
@@ -63,7 +63,7 @@ public class MoveSteps {
 
     @Then("the new move count is {int}")
     public void checkMoveCount(int endingMoveCount) {
-        assertEquals(endingMoveCount, testObj.getCharacter().getMoveCount());
+        assertEquals(endingMoveCount, testObj.getStatus().moveCount);
     }
 
 }
