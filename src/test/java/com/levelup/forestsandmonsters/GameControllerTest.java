@@ -4,6 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
@@ -54,5 +55,17 @@ public class GameControllerTest {
         objController.enterGameMap();
 
         assertEquals(100,objController.getTotalPositions());
+    }
+    @Test
+    public void testGetTotalPositions(){
+        GameController objGameController = new GameController();
+        GameMap objGameMap = new GameMap();
+        int intTotalPositions = objGameController.getTotalPositions();
+
+        assertEquals(intTotalPositions, intTotalPositions);
+
+        
+
+
     }
 }

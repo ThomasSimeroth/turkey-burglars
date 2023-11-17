@@ -46,9 +46,7 @@ public class GameController {
     }
 
     public void enterGameMap() {
-        Character objCharacter = new Character();
         GameMap map = new GameMap(10,10);
-    
         objCharacter.enterMap(map);
     }
 
@@ -67,16 +65,11 @@ public class GameController {
         objCharacter.setPosition(objPosition);
     }
 
-    public void setCurrentMoveCount(int moveCount) {
-        // TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
-    }
-
     public int getTotalPositions() {
         // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
         // testable
-       // FakeGameMap objFakeGameMap = new FakeGameMap();
-       int intTotalPositions = 100;
-       return intTotalPositions;
+        GameMap objGameMap = new GameMap();
+        return  objGameMap.getNumPositions();
     }
 
 }

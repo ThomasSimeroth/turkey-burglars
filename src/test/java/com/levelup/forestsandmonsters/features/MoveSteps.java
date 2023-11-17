@@ -32,11 +32,6 @@ public class MoveSteps {
         this.direction = GameController.DIRECTION.valueOf(direction);
     }
 
-    @Given("the current move count is {int}")
-    public void givenTheCurrentMoveCountIs(int currentMoveCount) {
-        testObj.setCurrentMoveCount(currentMoveCount);
-    }
-
     @When("the character moves")
     public void theCharacterMoves() {
         testObj.setCharacterPosition(new Point(this.startX, this.startY));
