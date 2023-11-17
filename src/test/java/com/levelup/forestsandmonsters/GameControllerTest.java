@@ -55,7 +55,4 @@ public class GameControllerTest {
 
         assertEquals(100,objController.getTotalPositions());
     }
-
-
-
 }

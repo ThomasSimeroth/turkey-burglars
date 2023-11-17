@@ -5,6 +5,7 @@ import java.awt.Point;
 public class GameController {
 
     static final String DEFAULT_CHARACTER_NAME = "Character";
+    private Character objCharacter = new Character();
 
     public class GameStatus {
         // TODO: Add other status data
@@ -28,17 +29,16 @@ public class GameController {
     // Pre-implemented to demonstrate ATDD
     // TODO: Update this if it does not match your design
     public void createCharacter(String name) {
-        if (name != null && !name.equals("")) {
-            status.characterName = name;
-        } else {
-            status.characterName = DEFAULT_CHARACTER_NAME;
-        }
+        Character objCharacter = new Character(name);
     }
 
     public void startGame() {
         // TODO: Implement startGame - Should probably create tiles and put the character
         // on them?
         // TODO: Should also update the game results?
+        GameMap objGameMap = new GameMap();
+        Character objCharacter = new Character();
+        
     }
 
     public GameStatus getStatus() {
@@ -56,7 +56,6 @@ public class GameController {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
 
-        Character objCharacter = new Character();
         objCharacter.move(directionToMove);
 
     }
