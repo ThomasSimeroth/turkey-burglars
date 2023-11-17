@@ -25,7 +25,8 @@ public class GameControllerTest {
     public void checkNamePopulated() {
         GameController testObj = new GameController();
         testObj.createCharacter("Turkey");
-        assertNotNull(testObj);
+
+        asseertEquals("Turkey", testObj.getCharacterName());
     }
     @Test
     public void checkNameDefault() {
@@ -62,10 +63,7 @@ public class GameControllerTest {
         GameMap objGameMap = new GameMap();
         int intTotalPositions = objGameController.getTotalPositions();
 
-        assertEquals(intTotalPositions, intTotalPositions);
-
-        
-
-
+        assertEquals(intTotalPositions, intTotalPositions);  
     }
+    @Test
 }

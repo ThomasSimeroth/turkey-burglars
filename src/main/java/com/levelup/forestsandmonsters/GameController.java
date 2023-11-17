@@ -13,6 +13,10 @@ public class GameController {
         public Point currentPosition = null;
         // TODO: Write a failing unit test that will force you to set this to the right number
         public int moveCount = -100;
+
+        characterName = objCharacter.getName();
+        currentPosition = objCharacter.getPosition();
+        moveCount = objCharacter.getMoveCount();
     }
 
     GameStatus status;
@@ -38,16 +42,12 @@ public class GameController {
         // TODO: Should also update the game results?
         GameMap objGameMap = new GameMap();
         Character objCharacter = new Character();
-        
+        GameMap map = new GameMap(10,10);
+        objCharacter.enterMap(map);
     }
 
     public GameStatus getStatus() {
         return this.status;
-    }
-
-    public void enterGameMap() {
-        GameMap map = new GameMap(10,10);
-        objCharacter.enterMap(map);
     }
 
     public void move(DIRECTION directionToMove) {
@@ -70,6 +70,11 @@ public class GameController {
         // testable
         GameMap objGameMap = new GameMap();
         return  objGameMap.getNumPositions();
+    }
+
+    public String getCharacterName()
+    {
+        return objCharacter.getName();
     }
 
 }
