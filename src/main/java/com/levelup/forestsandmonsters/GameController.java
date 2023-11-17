@@ -43,7 +43,11 @@ public class GameController {
     }
 
     public GameStatus getStatus() {
-        return this.status;
+        GameStatus status = new GameStatus();
+        status.characterName = objCharacter.getName();
+        status.currentPosition = objCharacter.getPosition();
+        status.moveCount = objCharacter.getMoveCount();
+        return status;
     }
 
     public void enterGameMap() {
