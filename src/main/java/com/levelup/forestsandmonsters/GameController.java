@@ -16,7 +16,6 @@ public class GameController {
         startGame();
     }
 
-    // TODO: Ensure this AND CLI commands match domain model
     public static enum DIRECTION {
         NORTH, SOUTH, EAST, WEST
     }
@@ -39,7 +38,7 @@ public class GameController {
         // TODO: Should also update the game results?
         gameMap = new GameMap();
         objCharacter = new Character();
-        objCharacter.enterMap(gameMap);
+        enterGameMap();
     }
 
     public GameStatus getStatus() {
@@ -51,7 +50,6 @@ public class GameController {
     }
 
     public void enterGameMap() {
-        gameMap = new GameMap(10,10);
         objCharacter.enterMap(gameMap);
     }
 
@@ -64,7 +62,7 @@ public class GameController {
     }
 
     public void setCharacterPosition(Position coordinates) {
-        Position objPosition = new Position(getTotalPositions(), getTotalPositions());
+        Position objPosition = new Position(coordinates.getX(), coordinates.getY());
         objCharacter.setPosition(objPosition);
     }
 
@@ -73,10 +71,7 @@ public class GameController {
     }
 
     public int getTotalPositions() {
-        // TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP -- exists to be
-        // testable
-        GameMap objGameMap = new GameMap();
-        return  objGameMap.getNumPositions();
+        return gameMap.getNumPositions();
     }
 
     public String getCharacterName()
