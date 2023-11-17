@@ -37,7 +37,9 @@ public class GameController {
         // on them?
         // TODO: Should also update the game results?
         gameMap = new GameMap();
-        objCharacter = new Character();
+        if(objCharacter == null) {
+            objCharacter = new Character();
+        }
         enterGameMap();
     }
 
@@ -58,6 +60,8 @@ public class GameController {
         // TODO: Should probably also update the game results
 
         objCharacter.move(directionToMove);
+        System.out.println(objCharacter.getName() + " moved to position (" + objCharacter.getPosition().getX() + "," 
+        + objCharacter.getPosition().getY() + ") for a total of " + objCharacter.getMoveCount() + " move(s).");
 
     }
 
