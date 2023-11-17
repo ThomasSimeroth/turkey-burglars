@@ -31,7 +31,7 @@ public class GameControllerTest {
     @Test
     public void checkNameDefault() {
         GameController testObj = new GameController();
-        testObj.createCharacter();
+        testObj.createCharacter("");
         assertEquals("Turkey Burglar", testObj.getCharacter().getName());
     }
 

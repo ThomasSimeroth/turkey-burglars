@@ -26,11 +26,11 @@ public class GameController {
     }
 
     public void createCharacter(String name) {
-        objCharacter = new Character(name);
-    }
-
-    public void createCharacter() {
-        objCharacter = new Character();
+        if(name == null || name == "") {
+            objCharacter = new Character();
+        } else {
+            objCharacter = new Character(name);
+        }
     }
 
     public void startGame() {
