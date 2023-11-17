@@ -42,8 +42,8 @@ public class GameControllerTest {
         objGameController.startGame();
         objGameController.move(DIRECTION.EAST);
         Position newPosition = objGameController.getCharacter().getPosition();
-        assertEquals(1, newPosition.getX());
-        assertEquals(0, newPosition.getY());
+        assertEquals(2, newPosition.getX());
+        assertEquals(1, newPosition.getY());
     }
 
     @Test
