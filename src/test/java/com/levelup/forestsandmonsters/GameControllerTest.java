@@ -4,7 +4,6 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeNoException;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
@@ -24,21 +23,29 @@ public class GameControllerTest {
     @Test
     public void checkNamePopulated() {
         GameController testObj = new GameController();
-        testObj.createCharacter("Turkey");
-
-        asseertEquals("Turkey", testObj.getCharacterName());
+        testObj.createCharacter("Thomas");
+        String characterName = testObj.getCharacter().getName();
+        assertEquals("Thomas", characterName);
     }
+
     @Test
     public void checkNameDefault() {
         GameController testObj = new GameController();
-        testObj.createCharacter(null);
-        assertNotNull(testObj);
+        testObj.createCharacter();
+        assertEquals("Turkey Burglar", testObj.getCharacter().getName());
     }
+
     @Test
     public void checkMove() {
         GameController objGameController = new GameController();
-        assertNotNull(objGameController);
+        objGameController.getCharacter().setPosition(new Position(1, 1));
+        objGameController.startGame();
+        objGameController.move(DIRECTION.EAST);
+        Position newPosition = objGameController.getCharacter().getPosition();
+        assertEquals(1, newPosition.getX());
+        assertEquals(0, newPosition.getY());
     }
+
     @Test
     public void testCalculateMapPositions() {
             GameMap gamemap = new GameMap(4, 7);

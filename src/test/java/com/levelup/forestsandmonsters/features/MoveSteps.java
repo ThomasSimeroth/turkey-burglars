@@ -6,6 +6,9 @@ import static org.junit.Assert.assertNotNull;
 import java.awt.Point;
 
 import com.levelup.forestsandmonsters.GameController;
+import com.levelup.forestsandmonsters.GameStatus;
+import com.levelup.forestsandmonsters.Position;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,9 +16,9 @@ import io.cucumber.java.en.When;
 public class MoveSteps {
 
     GameController testObj = new GameController();
-    int startX, startY, endX, endY;
+    int startX, startY, endX, endY, moveCount;
     GameController.DIRECTION direction;
-    Point currentPosition;
+    Position currentPosition;
 
     @Given("the character starts at position with XCoordinates {int}")
     public void givenTheCharacterStartsAtX(int startX) {
@@ -32,24 +35,30 @@ public class MoveSteps {
         this.direction = GameController.DIRECTION.valueOf(direction);
     }
 
+    @Given("the current move count is {int}")
+    public void givenTheCurrentMoveCount(int moveCount) {
+        this.moveCount = moveCount;
+    }
+
     @When("the character moves")
     public void theCharacterMoves() {
-        testObj.setCharacterPosition(new Point(this.startX, this.startY));
+        testObj.setCharacterPosition(new Position(this.startX, this.startY));
         testObj.move(this.direction);
-        GameController.GameStatus status = testObj.getStatus();
-        this.currentPosition = status.currentPosition;
+        testObj.setMoveCount(moveCount);
+        com.levelup.forestsandmonsters.Character character = testObj.getCharacter();
+        this.currentPosition = character.getPosition();
     }
 
     @Then("the character is now at position with XCoordinates {int}")
     public void checkXCoordinates(int endX) {
         assertNotNull("Expected position not null", this.currentPosition) ;
-        assertEquals(endX, this.currentPosition.x);
+        assertEquals(endX, this.currentPosition.getX());
     }
 
     @Then("YCoordinates {int}")
     public void checkYCoordinates(int endY) {
         assertNotNull("Expected position not null", this.currentPosition);
-        assertEquals(endY, this.currentPosition.y);
+        assertEquals(endY, this.currentPosition.getY());
     }
 
     @Then("the new move count is {int}")
