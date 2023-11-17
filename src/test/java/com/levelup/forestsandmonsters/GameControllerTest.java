@@ -72,5 +72,4 @@ public class GameControllerTest {
 
         assertEquals(intTotalPositions, intTotalPositions);  
     }
-    @Test
 }

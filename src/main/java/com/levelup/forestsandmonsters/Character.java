@@ -47,10 +47,6 @@ public class Character {
         return this.moveCount;
     }
 
-    public void setMoveCount(int moveCount) {
-        this.moveCount = moveCount;
-    }
-
     public Character() {
         this.name = DEFAULT_NAME;
         this.currentPosition = DEFAULT_POSITION;

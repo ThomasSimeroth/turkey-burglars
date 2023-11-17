@@ -60,8 +60,6 @@ public class GameController {
     }
 
     public void setCharacterPosition(Position coordinates) {
-        // TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
-        Character objCharacter = new Character();
         Position objPosition = new Position(getTotalPositions(), getTotalPositions());
         objCharacter.setPosition(objPosition);
     }
